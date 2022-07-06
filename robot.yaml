@@ -1,0 +1,4 @@
+--listener  robotframework_reportportal.listener
+--variable RP_ENDPOINT:https://reportportal.epam.com
+--variable RP_LAUNCH:Robot_Automation
+--variable RP_PROJECT:ahnl-engx
