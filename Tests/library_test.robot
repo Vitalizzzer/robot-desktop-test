@@ -17,10 +17,10 @@ ${DB_PATH}=         C:\\Users\\Vitalii_Rymar\\Apps\\Library\\Resources\\LibraryD
 Verify book is added into library application
     [Documentation]  Open library and add a new book.
     [Tags]  Smoke
-    Open Library application
+    [Setup]    Open Library application
     Add a new book
-    Check the book exists in UI
     Check the book exists in DB
+    Check the book exists in UI
     Delete books
     [Teardown]    Close Window    id:WindowMain
 
@@ -41,6 +41,10 @@ Add a new book
     Set Value         class:Edit          ${COVER_PATH}    enter=True
     Click             id:BtnAddBook
 
+Check the book exists in DB
+    Connect To Database Using Custom Params    sqlite3    database=r"${DB_PATH}.db", isolation_level=None
+    Check If Exists In Database    SELECT * FROM Book WHERE Author='${AUTHOR}'
+
 Check the book exists in UI
     ${rows}=    Get Elements    class:DataGridRow
     FOR    ${row}    IN    ${rows}
@@ -51,10 +55,6 @@ Check the book exists in UI
           should be equal   ${cell[2].name}    ${GENRE}
         END
     END
-
-Check the book exists in DB
-    Connect To Database Using Custom Params    sqlite3    database=r"${DB_PATH}.db", isolation_level=None
-    Check If Exists In Database    SELECT * FROM Book WHERE Author='${AUTHOR}'
 
 Delete books
     ${rows}=    Get Elements    class:DataGridRow

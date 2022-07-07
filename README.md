@@ -13,7 +13,8 @@
 
 ### Robot Framework
 
-- Install Robot Framework by running the command in the Command Prompt or IDE terminal: ```pip install robotframework``` 
+- Install Robot Framework by running the command in the Command Prompt or IDE terminal:  
+```pip install robotframework``` 
 - Install libraries:  
 ```pip install rpaframework```  
 ```pip install rpaframework-windows```  
@@ -52,11 +53,11 @@ Run the following commands in the Command Prompt or IDE terminal:
 ```pip install robotframework-reportportal```  
 
 - In robot.yaml set the Report Portal details
-```
---variable RP_ENDPOINT:<REPORT_PORTAL_URL>
---variable RP_LAUNCH:<LAUNCH_NAME>
---variable RP_PROJECT:<PROJECT_NAME>
-```
+    ```
+    --variable RP_ENDPOINT:<REPORT_PORTAL_URL>
+    --variable RP_LAUNCH:<LAUNCH_NAME>
+    --variable RP_PROJECT:<PROJECT_NAME>
+    ```
 
 - Add the following arguments to the execution command:  
 ```-v RP_UUID:xxxxxxxxxxxxxxxx --argumentfile robot.yaml```  
